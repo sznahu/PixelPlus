@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PixelPlus | Sitios web para tu negocio</title>
+  <meta name="description" content="Creamos sitios web modernos y tiendas online para negocios y emprendimientos.">
+  <meta name="theme-color" content="#0b1224">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="estilos.css">
+  <script src="tema.js"></script>
+</head>
+<body>
+  <div class="fondo-ambiental" aria-hidden="true"></div>
+  <header class="site-header">
+    <div class="contenedor header-inner">
+      <a href="#inicio" class="logo" aria-label="PixelPlus, inicio">
+        <span class="logo-marca" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M9 8h21a9 9 0 0 1 0 18H19v14H9V8Zm10 9v0h11a3 3 0 0 0 0-6H19v6Z" fill="currentColor"/><path d="M33 28h6v12h-6z" fill="currentColor" opacity=".55"/></svg></span>
+        <span class="logo-text">Pixel<span>Plus</span></span>
+      </a>
+      <button class="menu-toggle" id="abrir-menu" aria-label="Abrir menú" aria-expanded="false" aria-controls="barra-lateral">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <aside class="menu-panel" id="barra-lateral" aria-label="Menú principal">
+    <div class="menu-head"><span>Navegación</span><button class="menu-close" aria-label="Cerrar menú">&times;</button></div>
+    <nav class="menu-links">
+      <a href="#inicio">Inicio</a><a href="#servicios">Servicios</a><a href="#planes">Planes</a><a href="#contacto">Contacto</a><a href="creaciones.html">Creaciones</a>
+    </nav>
+    <button class="theme-toggle" data-alternar-tema aria-pressed="false"><span>Modo nocturno</span><span class="theme-state" data-tema-estado>Desactivado</span></button>
+  </aside>
+  <div class="overlay" id="velo"></div>
+
+  <main>
+    <section class="hero reveal" id="inicio">
+      <div class="contenedor hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="eyebrow-dot"></span> Diseño web para negocios</p>
+          <h1>Tu negocio merece una presencia <span class="texto-gradiente">digital extraordinaria.</span></h1>
+          <p class="hero-lead">Sitios modernos, rápidos y pensados para que tus clientes encuentren lo que necesitan desde cualquier dispositivo.</p>
+          <div class="hero-actions"><a href="#contacto" class="button button-primary">Hablemos de tu web <span aria-hidden="true">↗</span></a><a href="creaciones.html" class="button button-ghost">Ver proyectos</a></div>
+          <div class="hero-note"><span class="mini-check">✓</span> Diseño adaptable · Contacto directo · Fácil de navegar</div>
+        </div>
+        <div class="hero-art" aria-label="Vista decorativa de diseño web">
+          <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+          <div class="floating-chip chip-top"><span class="chip-icon">✦</span> Diseño a medida</div>
+          <div class="browser-card">
+            <div class="browser-top"><div class="browser-dots"><i></i><i></i><i></i></div><span>tu-negocio.com</span><b>⌁</b></div>
+            <div class="browser-content"><div class="mock-brand"><span class="mock-symbol">P</span><span>Tu marca</span><small>INICIO&nbsp;&nbsp; CATÁLOGO&nbsp;&nbsp; CONTACTO</small></div>
+              <div class="mock-hero"><span>Una nueva<br>forma de <em>crecer.</em></span><div class="mock-sun"></div></div>
+              <div class="mock-row"><div></div><div></div><div></div></div>
+            </div>
+          </div>
+          <div class="floating-chip chip-bottom"><span class="chip-icon">↗</span> Hecho para móvil</div>
+          <div class="hero-glow"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="intro-strip reveal">
+      <div class="contenedor strip-inner"><span>Ideas que se convierten en sitios web.</span><span class="strip-divider"></span><span>Tu negocio, online y listo para crecer.</span></div>
+    </section>
+
+    <section id="servicios" class="section">
+      <div class="contenedor">
+        <div class="section-heading reveal"><p class="eyebrow">Qué podemos crear</p><h2>Todo lo que tu negocio necesita<br><span class="texto-gradiente">para destacar online.</span></h2><p>Una experiencia clara y moderna, con lo esencial para presentar tu marca y conectar con tus clientes.</p></div>
+        <div class="feature-grid">
+          <article class="feature-card reveal"><span class="feature-icon">⌘</span><h3>Presencia online</h3><p>Una web profesional para mostrar tu negocio, tus servicios y tus datos de contacto.</p><span class="feature-index">01</span></article>
+          <article class="feature-card reveal"><span class="feature-icon">▦</span><h3>Catálogo digital</h3><p>Productos ordenados con imágenes, precios, categorías y acceso rápido a consultas.</p><span class="feature-index">02</span></article>
+          <article class="feature-card reveal"><span class="feature-icon">↗</span><h3>Tienda online</h3><p>Una experiencia de compra con carrito y opciones de pago integradas según el proyecto.</p><span class="feature-index">03</span></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="planes" class="section section-alt">
+      <div class="contenedor">
+        <div class="section-heading reveal"><p class="eyebrow">Opciones de trabajo</p><h2>Elegí el punto de partida<br><span class="texto-gradiente">para tu próximo proyecto.</span></h2><p>Los detalles se adaptan a las necesidades de cada negocio. Consultá para definir el alcance.</p></div>
+        <div class="pricing-grid">
+          <article class="price-card reveal"><div class="plan-label">01 · Esencial</div><h3>Presencia</h3><p class="plan-summary">Una web clara para que tus clientes te conozcan.</p><div class="price-text">Consultar</div><ul><li>Una página de presentación</li><li>Diseño adaptable a celulares</li><li>Botón de WhatsApp o contacto</li><li>Secciones informativas</li></ul><a class="button button-ghost full" href="#contacto">Consultar este plan</a></article>
+          <article class="price-card price-featured reveal"><div class="plan-label">02 · Más elegido</div><h3>Comercio</h3><p class="plan-summary">Mostrá productos y recibí consultas de manera sencilla.</p><div class="price-text">Consultar</div><ul><li>Todo lo del plan Presencia</li><li>Catálogo de productos</li><li>Carrito o pedido por WhatsApp</li><li>Configuración personalizada</li></ul><a class="button button-primary full" href="#contacto">Consultar este plan</a></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto" class="section contact-section">
+      <div class="contenedor contact-grid">
+        <div class="contact-copy reveal"><p class="eyebrow">El próximo paso</p><h2>Hagamos realidad<br><span class="texto-gradiente">tu idea online.</span></h2><p>Contanos qué negocio tenés y qué te gustaría mostrar. Podemos conversar y encontrar la mejor opción para vos.</p><div class="contact-stamp"><span class="stamp-mark">P+</span><span>PixelPlus<br><small>Diseño digital</small></span></div></div>
+        <form id="formulario-contacto" class="contact-form reveal"><label>Nombre del negocio<input type="text" name="negocio" autocomplete="organization" placeholder="Ej. Mi tienda" required></label><label>Teléfono o WhatsApp<input type="tel" name="telefono" autocomplete="tel" placeholder="Tu número de contacto" required></label><label>¿Qué necesitás?<textarea name="mensaje" placeholder="Contanos brevemente tu idea..."></textarea></label><button type="submit" class="button button-primary full">Enviar consulta <span aria-hidden="true">↗</span></button><p class="mensaje-ok" id="mensaje-ok" role="status">¡Gracias! El formulario de muestra se completó. Aún no envía mensajes a un servidor.</p></form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="contenedor footer-inner"><a href="#inicio" class="logo logo-footer"><span class="logo-marca" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M9 8h21a9 9 0 0 1 0 18H19v14H9V8Zm10 9v0h11a3 3 0 0 0 0-6H19v6Z" fill="currentColor"/><path d="M33 28h6v12h-6z" fill="currentColor" opacity=".55"/></svg></span><span class="logo-text">Pixel<span>Plus</span></span></a><p>Sitios web para negocios y emprendimientos.</p><a class="footer-up" href="#inicio" aria-label="Volver arriba">↑</a></div><div class="footer-bottom">© <span id="year"></span> PixelPlus · Diseño web</div></footer>
+  <script src="index.js"></script>
+</body>
+</html>

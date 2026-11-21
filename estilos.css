@@ -1,0 +1,221 @@
+/* ==========================================================
+   PIXELPLUS · CSS PRINCIPAL
+   ÍNDICE PARA EDITAR
+   01 Fuentes y variables | 02 Tema nocturno | 03 Base
+   04 Header y marca | 05 Menú lateral | 06 Botones
+   07 Portada | 08 Franja | 09 Servicios | 10 Planes
+   11 Contacto | 12 Portfolio | 13 Footer | 14 Animaciones
+   15 Responsive | 16 Movimiento reducido
+   ========================================================== */
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap");
+
+/* 01 · FUENTES, PALETA Y VARIABLES */
+:root {
+  --fondo: #0b1224;
+  --fondo-2: #0f1a30;
+  --tarjeta: rgba(18, 30, 52, .78);
+  --texto: #edf4ff;
+  --texto-suave: #aab8ce;
+  --titulo: #f6f9ff;
+  --borde: rgba(151, 178, 219, .16);
+  --azul: #5b8cff;
+  --celeste: #62d4ff;
+  --violeta: #8b7cff;
+  --gradiente: linear-gradient(110deg, #75a7ff 0%, #5de1ff 55%, #9c8bff 100%);
+  --sombra: 0 24px 70px rgba(0, 0, 0, .28);
+  --radio: 24px;
+  --transicion: .28s cubic-bezier(.2,.75,.25,1);
+  color-scheme: dark;
+}
+html.modo-nocturno { /* la paleta por defecto ya es oscura */ }
+html:not(.modo-nocturno) {
+  --fondo: #f5f8ff;
+  --fondo-2: #eaf0ff;
+  --tarjeta: rgba(255,255,255,.84);
+  --texto: #25324a;
+  --texto-suave: #64748b;
+  --titulo: #101a2d;
+  --borde: rgba(69, 98, 145, .18);
+  --sombra: 0 20px 55px rgba(39, 67, 115, .10);
+  color-scheme: light;
+}
+
+/* 03 · BASE, TIPOGRAFÍA Y CONTENEDOR */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+body { margin: 0; min-width: 320px; font-family: "DM Sans", sans-serif; color: var(--texto); background: var(--fondo); line-height: 1.65; transition: background var(--transicion), color var(--transicion); overflow-x: hidden; }
+body, button, input, textarea { font-family: "DM Sans", sans-serif; }
+a { color: inherit; text-decoration: none; }
+button { color: inherit; }
+img { display: block; max-width: 100%; }
+.contenedor { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+h1,h2,h3,.logo-text { font-family: "Space Grotesk", sans-serif; color: var(--titulo); line-height: 1.12; letter-spacing: -.035em; }
+.fondo-ambiental { position: fixed; inset: -15%; z-index: -1; pointer-events: none; background: radial-gradient(circle at 14% 20%, rgba(91,140,255,.15), transparent 34%), radial-gradient(circle at 85% 45%, rgba(93,225,255,.10), transparent 35%); }
+
+/* 04 · HEADER Y LOGO VECTORIAL PIXELPLUS */
+.site-header { position: sticky; top: 0; z-index: 40; background: color-mix(in srgb, var(--fondo) 78%, transparent); backdrop-filter: blur(18px); border-bottom: 1px solid var(--borde); }
+.header-inner { display:flex; align-items:center; justify-content:space-between; min-height:76px; }
+.logo { display:inline-flex; align-items:center; gap:11px; }
+.logo-marca { width:42px; height:42px; display:grid; place-items:center; color:#071226; background:var(--gradiente); border-radius:13px; box-shadow:0 7px 24px rgba(91,140,255,.24); transform:rotate(-3deg); transition:transform var(--transicion), box-shadow var(--transicion); }
+.logo-marca svg { width:29px; height:29px; }
+.logo:hover .logo-marca { transform:rotate(0) scale(1.07); box-shadow:0 10px 30px rgba(91,140,255,.35); }
+.logo-text { font-size:1.32rem; font-weight:700; color:var(--titulo); letter-spacing:-.05em; }
+.logo-text span { color:var(--celeste); }
+
+/* 05 · MENÚ LATERAL Y CAPA */
+.menu-toggle { display:grid; place-content:center; gap:5px; width:46px; height:46px; border:1px solid var(--borde); border-radius:14px; background:var(--tarjeta); cursor:pointer; transition:background var(--transicion), border var(--transicion); }
+.menu-toggle:hover { border-color:var(--azul); background:var(--fondo-2); }
+.menu-toggle span { display:block; width:19px; height:2px; background:var(--titulo); border-radius:5px; transition:transform var(--transicion), opacity var(--transicion); }
+.menu-toggle[aria-expanded="true"] span:first-child { transform:translateY(7px) rotate(45deg); }
+.menu-toggle[aria-expanded="true"] span:nth-child(2) { opacity:0; }
+.menu-toggle[aria-expanded="true"] span:last-child { transform:translateY(-7px) rotate(-45deg); }
+.menu-panel { position:fixed; inset:0 auto 0 0; width:min(330px, 88vw); z-index:60; padding:26px; background:var(--fondo-2); border-right:1px solid var(--borde); box-shadow:var(--sombra); transform:translateX(-105%); visibility:hidden; transition:transform .35s ease, visibility .35s; display:flex; flex-direction:column; }
+.menu-panel.abierta { transform:translateX(0); visibility:visible; }
+.menu-head { display:flex; justify-content:space-between; align-items:center; margin-bottom:24px; font:600 1.1rem "Space Grotesk"; }
+.menu-close { border:1px solid var(--borde); background:transparent; width:40px; height:40px; border-radius:12px; font-size:1.5rem; cursor:pointer; }
+.menu-links { display:grid; gap:7px; }
+.menu-links a { padding:13px 15px; border-radius:12px; color:var(--texto); transition:background var(--transicion), color var(--transicion), transform var(--transicion); }
+.menu-links a:hover { background:rgba(91,140,255,.12); color:var(--celeste); transform:translateX(4px); }
+.theme-toggle { display:flex; justify-content:space-between; align-items:center; gap:12px; margin-top:auto; border:1px solid var(--borde); border-radius:14px; background:var(--tarjeta); padding:14px; cursor:pointer; }
+.theme-state { color:var(--texto-suave); font-size:.9rem; }
+.boton-tema { padding:10px 15px; border:1px solid var(--borde); border-radius:12px; background:var(--tarjeta); font-weight:600; cursor:pointer; transition:transform var(--transicion), border-color var(--transicion); }
+.boton-tema:hover { transform:translateY(-2px); border-color:var(--azul); }
+.overlay { position:fixed; inset:0; z-index:50; background:rgba(2,6,18,.58); opacity:0; visibility:hidden; backdrop-filter:blur(3px); transition:opacity .3s, visibility .3s; }
+.overlay.visible { opacity:1; visibility:visible; }
+.menu-abierto { overflow:hidden; }
+
+/* 06 · BOTONES, FOCUS Y ACCESIBILIDAD */
+.button { display:inline-flex; align-items:center; justify-content:center; gap:12px; min-height:48px; padding:13px 20px; border-radius:14px; font-weight:700; border:1px solid transparent; cursor:pointer; transition:transform var(--transicion), box-shadow var(--transicion), background var(--transicion), border-color var(--transicion); }
+.button:hover { transform:translateY(-2px); }
+.button-primary { color:#071225; background:var(--gradiente); box-shadow:0 10px 28px rgba(91,140,255,.2); }
+.button-primary:hover { box-shadow:0 14px 34px rgba(91,140,255,.32); }
+.button-ghost { border-color:var(--borde); background:var(--tarjeta); color:var(--texto); }
+.button-ghost:hover { border-color:var(--azul); background:var(--fondo-2); }
+.full { width:100%; }
+button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visible { outline:3px solid var(--celeste); outline-offset:3px; }
+
+/* 07 · HERO, PRESENTACIÓN Y MOCKUP ANIMADO */
+.hero { position:relative; padding:clamp(70px, 11vw, 135px) 0 92px; }
+.hero-grid { display:grid; grid-template-columns:1.06fr .94fr; align-items:center; gap:45px; }
+.eyebrow { display:flex; align-items:center; gap:9px; text-transform:uppercase; letter-spacing:.14em; font-size:.76rem; font-weight:700; color:var(--celeste); margin-bottom:20px; }
+.eyebrow-dot { width:8px; height:8px; border-radius:50%; background:var(--celeste); box-shadow:0 0 18px var(--celeste); }
+.hero h1 { max-width:720px; font-size:clamp(2.65rem, 6vw, 5rem); font-weight:700; margin:0 0 23px; }
+.texto-gradiente { background:var(--gradiente); -webkit-background-clip:text; background-clip:text; color:transparent; }
+.hero-lead { max-width:590px; color:var(--texto-suave); font-size:clamp(1rem, 1.6vw, 1.2rem); }
+.hero-actions { display:flex; flex-wrap:wrap; gap:13px; margin-top:31px; }
+.hero-note { display:flex; align-items:center; gap:9px; color:var(--texto-suave); font-size:.88rem; margin-top:24px; }
+.mini-check { display:grid; place-items:center; width:21px; height:21px; border-radius:50%; color:#071225; background:var(--celeste); font-weight:700; }
+.hero-art { min-height:440px; position:relative; display:grid; place-items:center; }
+.hero-glow { position:absolute; width:290px; height:290px; border-radius:50%; background:rgba(94,170,255,.15); filter:blur(45px); animation:glowPulse 5s ease-in-out infinite; }
+.orbit { position:absolute; border:1px solid rgba(112,164,255,.18); border-radius:50%; }
+.orbit-one { width:410px; height:410px; animation:orbitSpin 28s linear infinite; }
+.orbit-two { width:330px; height:330px; border-style:dashed; animation:orbitSpin 38s linear infinite reverse; }
+.browser-card { width:min(100%, 400px); position:relative; z-index:2; border:1px solid rgba(146,182,238,.3); border-radius:22px; overflow:hidden; background:var(--tarjeta); box-shadow:0 35px 90px rgba(0,0,0,.27); transform:rotate(-2deg); animation:floatCard 6s ease-in-out infinite; backdrop-filter:blur(15px); }
+.browser-top { display:flex; align-items:center; gap:14px; padding:14px 16px; border-bottom:1px solid var(--borde); color:var(--texto-suave); font-size:.72rem; }
+.browser-dots { display:flex; gap:5px; }.browser-dots i { width:7px;height:7px;border-radius:50%;background:#ff6d7a; }.browser-dots i:nth-child(2){background:#ffc66d}.browser-dots i:nth-child(3){background:#6de0aa}
+.browser-top b { margin-left:auto; }
+.browser-content { padding:16px; }
+.mock-brand { display:flex; align-items:center; gap:8px; font-weight:700; font-size:.8rem; color:var(--titulo); }
+.mock-symbol { display:grid; place-items:center; width:23px;height:23px;border-radius:7px;background:var(--gradiente);color:#0b1224;font-weight:800; }
+.mock-brand small { margin-left:auto; font-size:.48rem; color:var(--texto-suave); letter-spacing:.05em; }
+.mock-hero { position:relative; overflow:hidden; min-height:175px; margin-top:13px; border-radius:13px; padding:22px; display:flex; align-items:center; background:linear-gradient(120deg,#152a51,#284d85 60%,#3471b5); color:#f5f8ff; font:700 1.45rem "Space Grotesk"; }
+.mock-hero em { color:#76dcff; font-style:normal; }
+.mock-sun { position:absolute; right:25px; top:24px; width:100px;height:100px;border-radius:50%;background:linear-gradient(140deg,#9fe6ff,#6f9cff);opacity:.85;filter:drop-shadow(0 0 25px rgba(117,208,255,.45)); }
+.mock-row { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:12px; }
+.mock-row div { height:62px; border-radius:9px; background:var(--fondo-2); border:1px solid var(--borde); }
+.mock-row div:first-child { background:linear-gradient(140deg,rgba(91,140,255,.28),var(--fondo-2)); }
+.floating-chip { position:absolute; z-index:3; padding:12px 15px; border:1px solid var(--borde); border-radius:14px; background:var(--tarjeta); backdrop-filter:blur(14px); box-shadow:var(--sombra); font-size:.8rem; font-weight:700; animation:chipFloat 5s ease-in-out infinite; }
+.chip-icon { color:var(--celeste); margin-right:7px; }
+.chip-top { top:13%; right:-2%; }.chip-bottom { bottom:11%; left:-1%; animation-delay:-2s; }
+
+/* 08 · FRANJA DE VALOR */
+.intro-strip { border-top:1px solid var(--borde); border-bottom:1px solid var(--borde); background:var(--tarjeta); }
+.strip-inner { display:flex; justify-content:center; align-items:center; flex-wrap:wrap; gap:24px; padding:24px 0; color:var(--texto-suave); font-size:.9rem; text-align:center; }
+.strip-divider { width:5px;height:5px;border-radius:50%;background:var(--celeste); }
+
+/* 09 · SERVICIOS */
+.section { padding:clamp(65px, 9vw, 110px) 0; }
+.section-alt { background:var(--fondo-2); border-block:1px solid var(--borde); }
+.section-heading { max-width:700px; margin-bottom:40px; }
+.section-heading h2, .contact-copy h2 { font-size:clamp(2rem,4.3vw,3.4rem); margin-bottom:17px; }
+.section-heading>p:not(.eyebrow) { max-width:600px; color:var(--texto-suave); }
+.feature-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+.feature-card { position:relative; overflow:hidden; min-height:245px; padding:28px; border:1px solid var(--borde); border-radius:var(--radio); background:var(--tarjeta); transition:transform var(--transicion), border-color var(--transicion), box-shadow var(--transicion); }
+.feature-card:hover { transform:translateY(-6px); border-color:rgba(91,140,255,.55); box-shadow:var(--sombra); }
+.feature-icon { display:grid; place-items:center; width:47px;height:47px;border-radius:15px;background:rgba(91,140,255,.12);color:var(--celeste);font-size:1.4rem;margin-bottom:25px; }
+.feature-card h3 { font-size:1.35rem;margin-bottom:9px; }
+.feature-card p { color:var(--texto-suave);font-size:.95rem;max-width:35ch; }
+.feature-index { position:absolute; right:22px; top:20px; color:var(--texto-suave); font:600 .75rem "Space Grotesk"; opacity:.65; }
+
+/* 10 · PLANES */
+.pricing-grid { display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:20px; max-width:920px; }
+.price-card { border:1px solid var(--borde); border-radius:var(--radio); background:var(--tarjeta); padding:30px; transition:transform var(--transicion), box-shadow var(--transicion); }
+.price-card:hover { transform:translateY(-5px); box-shadow:var(--sombra); }
+.price-featured { border-color:rgba(91,140,255,.65); box-shadow:0 0 0 1px rgba(91,140,255,.16), var(--sombra); }
+.plan-label { color:var(--celeste); font-size:.75rem; font-weight:700; text-transform:uppercase; letter-spacing:.13em; }
+.price-card h3 { font-size:1.7rem; margin:14px 0 8px; }
+.plan-summary { color:var(--texto-suave); min-height:52px; }
+.price-text { font:700 1.8rem "Space Grotesk"; color:var(--titulo); margin:25px 0; }
+.price-card ul { list-style:none; margin:0 0 27px; }
+.price-card li { display:flex; gap:10px; padding:8px 0; color:var(--texto-suave); }
+.price-card li::before { content:"✓"; color:var(--celeste); font-weight:800; }
+.price-card .button { margin-top:auto; }
+
+/* 11 · CONTACTO */
+.contact-section { background:radial-gradient(circle at 10% 90%,rgba(91,140,255,.1),transparent 30%); }
+.contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start; }
+.contact-copy>p:not(.eyebrow) { max-width:500px; color:var(--texto-suave); }
+.contact-stamp { display:flex; align-items:center; gap:12px; margin-top:30px; color:var(--titulo); font-weight:700; }
+.stamp-mark { display:grid;place-items:center;width:48px;height:48px;border-radius:15px;background:var(--gradiente);color:#071226;font:700 1.1rem "Space Grotesk"; }
+.contact-stamp small { color:var(--texto-suave);font-weight:400; }
+.contact-form { padding:26px; border:1px solid var(--borde); border-radius:var(--radio); background:var(--tarjeta); box-shadow:var(--sombra); }
+.contact-form label { display:grid; gap:8px; color:var(--titulo); font-size:.9rem; font-weight:600; margin-bottom:15px; }
+.contact-form input, .contact-form textarea { width:100%; padding:13px 15px; border:1px solid var(--borde); border-radius:12px; background:var(--fondo); color:var(--texto); font:inherit; outline:none; transition:border var(--transicion), box-shadow var(--transicion); }
+.contact-form input:focus, .contact-form textarea:focus { border-color:var(--azul); box-shadow:0 0 0 3px rgba(91,140,255,.12); }
+.contact-form textarea { min-height:110px;resize:vertical; }
+.mensaje-ok { display:none; margin-top:14px; color:var(--celeste); font-size:.85rem; }
+
+/* 12 · PORTFOLIO / GALERÍA */
+.creaciones-hero { padding:clamp(65px,10vw,115px) 0 50px; }
+.creaciones-hero h1 { font-size:clamp(2.7rem,6vw,4.8rem); margin-bottom:20px; }
+.creaciones-hero p:not(.eyebrow) { max-width:620px; color:var(--texto-suave); margin-bottom:27px; }
+.galeria { padding:15px 0 100px; }
+.grilla { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr)); gap:22px; }
+.tarjeta { overflow:hidden; display:flex; flex-direction:column; border:1px solid var(--borde); border-radius:22px; background:var(--tarjeta); box-shadow:0 10px 36px rgba(0,0,0,.05); transition:transform var(--transicion), border-color var(--transicion), box-shadow var(--transicion); }
+.tarjeta:hover { transform:translateY(-6px); border-color:rgba(91,140,255,.5); box-shadow:var(--sombra); }
+.vista { min-height:210px; position:relative; display:flex; align-items:center; justify-content:center; overflow:hidden; padding:25px; color:white; background:linear-gradient(130deg,#253d72,#0e1b37); }
+.vista img { width:100%;height:100%;position:absolute;inset:0;object-fit:cover;transition:transform .65s cubic-bezier(.2,.75,.25,1); }
+.tarjeta:hover .vista img { transform:scale(1.06); }
+.vista-titulo { z-index:1; font:700 clamp(1.6rem,3vw,2.5rem) "Space Grotesk"; letter-spacing:-.04em; text-shadow:0 3px 15px rgba(0,0,0,.25); }
+.vista-deco { position:absolute; width:155px;height:155px;right:-45px;bottom:-70px;border:1px solid rgba(255,255,255,.25);border-radius:50%; box-shadow:0 0 0 24px rgba(255,255,255,.05),0 0 0 50px rgba(255,255,255,.035); }
+.cuerpo { display:flex;flex-direction:column;gap:10px;padding:25px;flex:1; }
+.categoria { color:var(--celeste);font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em; }
+.tarjeta h3 { font-size:1.45rem; }
+.tarjeta p { color:var(--texto-suave);font-size:.95rem; }
+.etiquetas { display:flex;flex-wrap:wrap;gap:7px;margin:5px 0 12px; }
+.etiquetas span { padding:6px 10px;border:1px solid var(--borde);border-radius:999px;background:var(--fondo-2);color:var(--texto-suave);font-size:.75rem; }
+.boton.proximamente { cursor:default;opacity:.7; }
+.vacio { grid-column:1/-1; padding:50px;text-align:center;color:var(--texto-suave); }
+
+/* 13 · FOOTER */
+.site-footer { border-top:1px solid var(--borde);background:var(--fondo-2); }
+.footer-inner { display:flex;align-items:center;justify-content:space-between;gap:20px;padding:27px 0; }
+.footer-inner p { color:var(--texto-suave);font-size:.85rem; }
+.logo-footer .logo-text { font-size:1.15rem; }
+.footer-up { display:grid;place-items:center;width:40px;height:40px;border:1px solid var(--borde);border-radius:12px;color:var(--texto);transition:transform var(--transicion),border var(--transicion); }
+.footer-up:hover { transform:translateY(-3px);border-color:var(--azul); }
+.footer-bottom { border-top:1px solid var(--borde);text-align:center;padding:15px;color:var(--texto-suave);font-size:.75rem; }
+
+/* 14 · ANIMACIONES: entrada progresiva, flotar, órbitas, glow */
+.reveal { opacity:1; transform:none; }
+html.reveal-preparado .reveal { opacity:0; transform:translateY(24px); transition:opacity .7s ease, transform .7s cubic-bezier(.2,.75,.25,1); transition-delay:var(--card-delay,0ms); }
+html.reveal-preparado .reveal.visible { opacity:1; transform:translateY(0); }
+@keyframes floatCard { 0%,100%{transform:translateY(0) rotate(-2deg)} 50%{transform:translateY(-12px) rotate(0deg)} }
+@keyframes chipFloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+@keyframes orbitSpin { to{transform:rotate(360deg)} }
+@keyframes glowPulse { 0%,100%{opacity:.6;transform:scale(.95)} 50%{opacity:1;transform:scale(1.1)} }
+
+/* 15 · RESPONSIVE */
+@media (max-width:900px) { .hero-grid{grid-template-columns:1fr;gap:25px}.hero-art{min-height:400px;max-width:540px;width:100%;margin:0 auto}.feature-grid{grid-template-columns:1fr 1fr}.contact-grid{gap:30px} }
+@media (max-width:640px) { .contenedor{width:min(100% - 30px,1120px)}.hero{padding:60px 0 65px}.hero h1{font-size:clamp(2.4rem,11vw,3.4rem)}.hero-art{min-height:330px}.orbit-one{width:310px;height:310px}.orbit-two{width:250px;height:250px}.browser-card{width:94%;max-width:350px}.chip-top{right:0;top:7%}.chip-bottom{left:0;bottom:5%}.feature-grid,.pricing-grid,.contact-grid{grid-template-columns:1fr}.section-heading h2,.contact-copy h2{font-size:clamp(2rem,9vw,2.75rem)}.feature-card{min-height:210px}.price-card{padding:24px}.footer-inner{flex-wrap:wrap}.strip-inner{gap:12px}.strip-divider{display:none} }
+@media (prefers-reduced-motion:reduce) { html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none} }
