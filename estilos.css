@@ -219,3 +219,37 @@ html.reveal-preparado .reveal.visible { opacity:1; transform:translateY(0); }
 @media (max-width:900px) { .hero-grid{grid-template-columns:1fr;gap:25px}.hero-art{min-height:400px;max-width:540px;width:100%;margin:0 auto}.feature-grid{grid-template-columns:1fr 1fr}.contact-grid{gap:30px} }
 @media (max-width:640px) { .contenedor{width:min(100% - 30px,1120px)}.hero{padding:60px 0 65px}.hero h1{font-size:clamp(2.4rem,11vw,3.4rem)}.hero-art{min-height:330px}.orbit-one{width:310px;height:310px}.orbit-two{width:250px;height:250px}.browser-card{width:94%;max-width:350px}.chip-top{right:0;top:7%}.chip-bottom{left:0;bottom:5%}.feature-grid,.pricing-grid,.contact-grid{grid-template-columns:1fr}.section-heading h2,.contact-copy h2{font-size:clamp(2rem,9vw,2.75rem)}.feature-card{min-height:210px}.price-card{padding:24px}.footer-inner{flex-wrap:wrap}.strip-inner{gap:12px}.strip-divider{display:none} }
 @media (prefers-reduced-motion:reduce) { html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none} }
+
+/* PLAN SELECCIONADO EN EL CONTACTO */
+.plan-seleccionado {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  margin-bottom: 18px;
+  padding: 9px 14px;
+  border: 1px solid rgba(98, 212, 255, .25);
+  border-radius: 12px;
+  background: rgba(98, 212, 255, .08);
+  color: var(--celeste);
+  font-size: .85rem;
+}
+
+.plan-seleccionado svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+
+.plan-seleccionado strong {
+  font-weight: 700;
+}
+
+.plan-seleccionado[hidden] {
+  display: none !important;
+}
