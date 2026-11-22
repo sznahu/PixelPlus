@@ -89,7 +89,14 @@
     <section id="contacto" class="section contact-section">
       <div class="contenedor contact-grid">
         <div class="contact-copy reveal"><p class="eyebrow">El próximo paso</p><h2>Hagamos realidad<br><span class="texto-gradiente">tu idea online.</span></h2><p>Contanos qué negocio tenés y qué te gustaría mostrar. Podemos conversar y encontrar la mejor opción para vos.</p><div class="contact-stamp"><span class="stamp-mark">P+</span><span>PixelPlus<br><small>Diseño digital</small></span></div></div>
-        <form id="formulario-contacto" class="contact-form reveal"><label>Nombre del negocio<input type="text" name="negocio" autocomplete="organization" placeholder="Ej. Mi tienda" required></label><label>Teléfono o WhatsApp<input type="tel" name="telefono" autocomplete="tel" placeholder="Tu número de contacto" required></label><label>¿Qué necesitás?<textarea name="mensaje" placeholder="Contanos brevemente tu idea..."></textarea></label><button type="submit" class="button button-primary full">Enviar consulta <span aria-hidden="true">↗</span></button><p class="mensaje-ok" id="mensaje-ok" role="status">¡Gracias! El formulario de muestra se completó. Aún no envía mensajes a un servidor.</p></form>
+        <form id="formulario-contacto" class="contact-form reveal"><div id="plan-seleccionado" class="plan-seleccionado" hidden>
+  <svg viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M20.59 13.41 13.41 20.59a2 2 0 0 1-2.83 0L3.41 13.41a2 2 0 0 1 0-2.83L10.59 3.41H20v10Z"/>
+    <circle cx="16" cy="7" r="1"/>
+  </svg>
+  <span>Plan seleccionado:</span>
+  <strong id="nombre-plan-seleccionado"></strong>
+        </div><label>Nombre del negocio<input type="text" name="negocio" autocomplete="organization" placeholder="Ej. Mi tienda" required></label><label>Teléfono o WhatsApp<input type="tel" name="telefono" autocomplete="tel" placeholder="Tu número de contacto" required></label><label>¿Qué necesitás?<textarea name="mensaje" placeholder="Contanos brevemente tu idea..."></textarea></label><button type="submit" class="button button-primary full">Enviar consulta <span aria-hidden="true">↗</span></button><p class="mensaje-ok" id="mensaje-ok" role="status">¡Gracias! El formulario de muestra se completó. Aún no envía mensajes a un servidor.</p></form>
       </div>
     </section>
   </main>
