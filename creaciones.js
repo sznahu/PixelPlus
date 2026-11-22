@@ -9,7 +9,7 @@ var proyectos = [
     categoria: "Tienda de ropa",
     descripcion: "Tienda de ropa con portada de colección, tarjetas de productos y navegación por categorías.",
     etiquetas: ["Moda", "Catálogo", "Diseño adaptable"],
-    url: "",
+    url: "https://royalfit-5zn.pages.dev/",
     color: "#172554",
     imagen: ""
   },
@@ -18,7 +18,7 @@ var proyectos = [
     categoria: "Tienda online",
     descripcion: "Concepto de tienda con catálogo, carrito de compras y flujo de pagos integrado.",
     etiquetas: ["E-commerce", "Carrito", "Mercado Pago"],
-    url: "",
+    url: "https://tienda-base99.pages.dev/",
     color: "#2563eb",
     imagen: ""
   }
