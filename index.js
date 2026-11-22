@@ -4,12 +4,28 @@ document.addEventListener("DOMContentLoaded", function () {
   var formulario = document.getElementById("formulario-contacto");
   var mensajeOk = document.getElementById("mensaje-ok");
 
-  if (formulario && mensajeOk) {
-    formulario.addEventListener("submit", function (evento) {
-      evento.preventDefault();
-      mensajeOk.style.display = "block";
-      formulario.reset();
-    });
+  if (formulario) {
+  formulario.addEventListener("submit", function (evento) {
+    evento.preventDefault();
+
+    var negocio = formulario.querySelector('[name="negocio"]').value.trim();
+    var telefono = formulario.querySelector('[name="telefono"]').value.trim();
+    var mensaje = formulario.querySelector('[name="mensaje"]').value.trim();
+
+    var texto =
+      "Hola! 👋 Quiero hacer una consulta a PixelPlus.\n\n" +
+      "🏪 Negocio: " + negocio + "\n" +
+      "📱 Mi teléfono: " + telefono + "\n" +
+      "💬 Consulta: " + (mensaje || "Quisiera recibir más información.");
+
+    var numeroWhatsApp = "5493644172141";
+
+    var enlace =
+      "https://wa.me/" + numeroWhatsApp +
+      "?text=" + encodeURIComponent(texto);
+
+    window.location.href = enlace;
+  });
   }
 
   /* PLAN ELEGIDO -> ETIQUETA Y MENSAJE */
